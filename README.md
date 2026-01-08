@@ -1,17 +1,13 @@
-Sample Java Maven
------------------
+# Python sample app using poetry package manager
 
-Run Locally (with Java 11 installed):
-```
-./mvnw compile exec:java
-```
+## Building
 
-Run Locally with Buildpacks & Docker:
-```
-pack build --builder=gcr.io/buildpacks/builder sample-java-mvn
-docker run -it -ePORT=8080 -p8080:8080 sample-java-mvn
-```
+`pack build poetry-sample --buildpack paketo-buildpacks/python`
 
-Run on Cloud Run:
+## Running
 
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+`docker run --interactive --tty --env PORT=8080 --publish 8080:8080 poetry-sample`
+
+## Viewing
+
+`curl http://localhost:8080`
